@@ -1,9 +1,9 @@
 data class Comments(
-    val count : Int,
-    val canPost : Boolean,
-    val groupsCanPost : Boolean,
-    val canClose : Boolean,
-    val canOpen : Boolean,
+    val count: UInt = 0u,
+    val canPost: Boolean = true,
+    val groupsCanPost: Boolean = true,
+    val canClose: Boolean = true,
+    val canOpen: Boolean = true,
 
-) {
+    ) {
 }
