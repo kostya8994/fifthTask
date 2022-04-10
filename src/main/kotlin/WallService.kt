@@ -1,4 +1,4 @@
-object WallService {
+class WallService {
     private var posts = emptyArray<Post>()
     fun add(post: Post): Post {
         val idNewPost: Int = posts.size + 1
