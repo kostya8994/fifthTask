@@ -24,5 +24,6 @@ data class Post(
     val isFavorite : Boolean = false,
     val donut: Donut = Donut(),
     val postponedId : Int = 0,
+    val attachments : Attachments? = null
 ) {
 }
