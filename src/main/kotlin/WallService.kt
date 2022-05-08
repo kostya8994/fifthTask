@@ -1,5 +1,8 @@
+import comment.Comment
+
 class WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     fun add(post: Post): Post {
         val idNewPost: Int = posts.size + 1
         posts += post.copy(id = idNewPost)
@@ -7,7 +10,6 @@ class WallService {
     }
 
     fun update(post: Post): Boolean {
-//        val postCheck : Post
         for ((index, postCheck) in posts.withIndex()) {
             if (postCheck.id == post.id) {
                 posts[index] = postCheck.copy(
@@ -39,5 +41,16 @@ class WallService {
             }
         }
         return false
+    }
+
+    fun createComment(comment: Comment){
+        var commentInArray: Boolean = false
+        for ((index, postCheck) in posts.withIndex()){
+            if (postCheck.id == comment.postId) {
+                comments += comment
+                commentInArray = true
+            }
+        }
+        if (!commentInArray) throw PostNotFoundException("no post with id ${comment.postId}")
     }
 }
