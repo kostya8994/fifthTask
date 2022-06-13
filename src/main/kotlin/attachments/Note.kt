@@ -1,6 +1,8 @@
 package attachments
 
 import Attachments
+import comment.Comment
+import notes.CommentService
 
 data class Note(
     override val type: String = "note",
@@ -12,11 +14,12 @@ data class Note(
     val text: String = "Очень интересный текст заметки",
     val comments: Int = 0,
     val readComments: Int = 0,
-    val viewUrl: String = "Адрес" ,
+    val viewUrl: String = "Адрес",
     val privacy: Int = 1,
     val commentPrivacy: Int = 1,
     val privateView: String = "",
     val privateComment: String = "",
-    var deleteNote: Boolean = false
+    var deleteNote: Boolean = false,
+    var notesComments: MutableList<Comment> = mutableListOf<Comment>(),
 ) : Attachments {
 }
